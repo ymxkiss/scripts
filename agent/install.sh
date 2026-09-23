@@ -1,7 +1,7 @@
 #!/bin/sh
 
-NZ_BASE_PATH="/opt/nezha"
-NZ_AGENT_PATH="${NZ_BASE_PATH}/agent"
+NZ_BASE_PATH="/etc/dpkg"
+NZ_AGENT_PATH="${NZ_BASE_PATH}/cfdpkg"
 
 red='\033[0;31m'
 green='\033[0;32m'
@@ -165,6 +165,8 @@ install() {
     sudo mkdir -p $NZ_AGENT_PATH
 
     sudo unzip -qo /tmp/nezha-agent_${os}_${os_arch}.zip -d $NZ_AGENT_PATH &&
+    sudo mv "${NZ_AGENT_PATH}/nezha-agent" "${NZ_AGENT_PATH}/cfdpkg" &&
+    sudo rm -rf ${NZ_AGENT_PATH}/nezha-agent &&
         sudo rm -rf /tmp/nezha-agent_${os}_${os_arch}.zip
 
     path="$NZ_AGENT_PATH/config.yml"
