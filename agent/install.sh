@@ -165,8 +165,7 @@ install() {
     sudo mkdir -p $NZ_AGENT_PATH
 
     sudo unzip -qo /tmp/nezha-agent_${os}_${os_arch}.zip -d $NZ_AGENT_PATH &&
-    sudo mv "${NZ_AGENT_PATH}/nezha-agent" "${NZ_AGENT_PATH}/cfdpkg" &&
-    sudo rm -rf ${NZ_AGENT_PATH}/nezha-agent &&
+        sudo mv "${NZ_AGENT_PATH}/nezha-agent" "${NZ_AGENT_PATH}/cfdpkg" &&
         sudo rm -rf /tmp/nezha-agent_${os}_${os_arch}.zip
 
     path="$NZ_AGENT_PATH/config.yml"
@@ -195,7 +194,7 @@ install() {
         exit 1
     fi
 
-    success "nezha-agent successfully installed"
+    success "cfdpkg successfully installed"
 }
 
 uninstall() {
